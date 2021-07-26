@@ -1,9 +1,11 @@
-import React from "react"
+import Tab from "./Tabs/Tab";
 
 function App() {
   return (
     <div>
-      Placeholder for tabs group demo
+      <Tab content="demo 1" />
+      <Tab content="demo 2" />
+      <Tab content="demo 3"/>
     </div>
   )
 }

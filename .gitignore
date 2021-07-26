@@ -2,6 +2,7 @@
 
 # visual code
 .history
+.vscode
 
 # dependencies
 /node_modules
