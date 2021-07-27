@@ -16,7 +16,7 @@ const Tabs: React.FC<Props> = ({ children }) => {
     // TODO: Set focus on the next tab
   }, [selectedTab]);
   
-  const handleKeyPress = useCallback((event: KeyboardEvent<HTMLUListElement>) => {
+  const handleKeyPress = useCallback((event: KeyboardEvent<HTMLOListElement>) => {
     const tabCount = children?.length;
 
     if (event.key === "ArrowRight") {
@@ -43,16 +43,16 @@ const Tabs: React.FC<Props> = ({ children }) => {
         {children.map((item, index) => (
           <Title
             key={index}
-            index={index}
+            index={index + 1}
             id={item.props.id}
             title={item.props.title}
-            isActive={selectedTab === index}
+            isActive={selectedTab === index + 1}
             setSelectedTab={setSelectedTab}
           />
         ))}
       </ol>
       <div>
-        {children[selectedTab]}
+        {children[selectedTab - 1]}
       </div>
     </div>
   )
