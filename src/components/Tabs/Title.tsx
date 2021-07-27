@@ -1,4 +1,4 @@
-import React, { useCallback } from "react"
+import React, { useCallback, LegacyRef } from "react"
 
 import cx from "classnames";
 import './styles.css';
@@ -8,10 +8,11 @@ type Props = {
   id: string;
   title: string;
   isActive: boolean;
+  tabRef: LegacyRef<HTMLButtonElement>;
   setSelectedTab: (index: number) => void;
 };
 
-const Title: React.FC<Props> = ({ index, id, title, isActive, setSelectedTab }) => {
+const Title: React.FC<Props> = ({ index, id, title, isActive, tabRef, setSelectedTab }) => {
   const onClick = useCallback(() => {
     setSelectedTab(index);
   }, [setSelectedTab, index])
@@ -28,7 +29,10 @@ const Title: React.FC<Props> = ({ index, id, title, isActive, setSelectedTab }) 
         aria-controls={id}
         tabIndex={isActive ? 0 : -1}
         className={className}
-        onClick={onClick}>{title}
+        onClick={onClick}
+        ref={tabRef}
+      >
+        {title}
       </button>
     </li>
   )

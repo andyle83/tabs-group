@@ -8,17 +8,20 @@ type Props = {
 };
 
 const Tabs: React.FC<Props> = ({ children }) => {
+
   const [selectedTab, setSelectedTab] = useState(1);
+  const tabsRef = Array(children?.length).fill(React.createRef());
 
   const handleNextTab = useCallback((firstTab: number, nextTab: number, lastTab: number) => {
     const tabToSelect = selectedTab === lastTab ? firstTab : nextTab;
-    console.log(`Moving to tab index ${tabToSelect}`);
-    // TODO: Set focus on the next tab
-  }, [selectedTab]);
+    setSelectedTab(tabToSelect);
+    tabsRef[tabToSelect - 1].current.focus();
+  }, [selectedTab, tabsRef]);
   
-  const handleKeyPress = useCallback((event: KeyboardEvent<HTMLOListElement>) => {
-    const tabCount = children?.length;
+  const handleKeyPress = useCallback((event: KeyboardEvent<HTMLUListElement>) => {
+    const tabCount = children?.length; 
 
+    // TODO: If has no tab element ?
     if (event.key === "ArrowRight") {
       const firstTab = 1;
       const nextTab = selectedTab + 1;
@@ -48,6 +51,7 @@ const Tabs: React.FC<Props> = ({ children }) => {
             title={item.props.title}
             isActive={selectedTab === index + 1}
             setSelectedTab={setSelectedTab}
+            tabRef={tabsRef[index]}
           />
         ))}
       </ol>

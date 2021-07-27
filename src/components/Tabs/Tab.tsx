@@ -6,7 +6,7 @@ type Props = {
 };
 
 const Tab: React.FC<Props> = ({ id, children }) => {
-  return <div id={id}>{children}</div>
+  return <div id={id} role="tabpanel">{children}</div>
 };
 
 export default Tab;
