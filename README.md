@@ -1,6 +1,6 @@
 # Tabs Group
 
-This is a `tabs-demo` application for an accessible tabs list component that follow WAI ARIA specification.
+This is a `tabs-demo` application for an **accessible** Tabs list component following **WAI ARIA** specifications.
 
 Here is a sample syntax to create a tabs list
 
@@ -31,6 +31,7 @@ Using following command to run / test application:
 
 - Tabs List has to contain more than 1 Tab. It must support for a single Tab as well
 - Tabs List should have more control on Tab, for example: set default focus Tab component
+- Tabs List should have separated `Panel` components to handle more features or extendable.
 - Support Enter / Home / End / Delete keyboard events
-- Need to implement some properties: `aria-labelledby`, `aria-haspopup`
+- Need to implement some properties: `aria-labelledby`, `aria-haspopup`, `hidden`
 - Adding more unit test to cover focus and keyboard events handler
