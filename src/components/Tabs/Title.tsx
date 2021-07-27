@@ -5,12 +5,13 @@ import './styles.css';
 
 type Props = {
   index: number;
+  id: string;
   title: string;
   isActive: boolean;
   setSelectedTab: (index: number) => void;
 };
 
-const Title: React.FC<Props> = ({ index, title, isActive, setSelectedTab }) => {
+const Title: React.FC<Props> = ({ index, id, title, isActive, setSelectedTab }) => {
   const onClick = useCallback(() => {
     setSelectedTab(index);
   }, [setSelectedTab, index])
@@ -20,8 +21,14 @@ const Title: React.FC<Props> = ({ index, title, isActive, setSelectedTab }) => {
   });
 
   return (
-    <li className={className} onClick={onClick}>
-      {title}
+    <li role="presentation">
+      <button 
+        role="tab"
+        aria-selected={isActive}
+        aria-controls={id}
+        className={className}
+        onClick={onClick}>{title}
+      </button>
     </li>
   )
 };

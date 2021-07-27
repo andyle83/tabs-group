@@ -12,11 +12,12 @@ const Tabs: React.FC<Props> = ({ children }) => {
 
   return (
     <div>
-      <ol className="tab-list">
+      <ol className="tab-list" role="tablist" aria-label="List of tabs">
         {children.map((item, index) => (
           <Title
             key={index}
             index={index}
+            id={item.props.id}
             title={item.props.title}
             isActive={selectedTab === index}
             setSelectedTab={setSelectedTab}
