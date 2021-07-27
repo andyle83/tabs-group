@@ -26,6 +26,7 @@ const Title: React.FC<Props> = ({ index, id, title, isActive, setSelectedTab }) 
         role="tab"
         aria-selected={isActive}
         aria-controls={id}
+        tabIndex={isActive ? 0 : -1}
         className={className}
         onClick={onClick}>{title}
       </button>
