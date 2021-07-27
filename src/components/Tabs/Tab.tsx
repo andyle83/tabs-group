@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 type Props = {
-  content: string;
+  title: string;
 };
 
-const Tab: React.FC<Props> = ({ content }) => {
-  return <div>{content}</div>
+const Tab: React.FC<Props> = ({ children }) => {
+  return <div>{children}</div>
 };
 
 export default Tab;
