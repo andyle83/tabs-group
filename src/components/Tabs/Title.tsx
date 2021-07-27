@@ -1,4 +1,4 @@
-import React, { useCallback, LegacyRef } from "react"
+import React, { useCallback, RefObject } from "react"
 
 import cx from "classnames";
 import './styles.css';
@@ -8,7 +8,7 @@ type Props = {
   id: string;
   title: string;
   isActive: boolean;
-  tabRef: LegacyRef<HTMLButtonElement>;
+  tabRef: RefObject<HTMLButtonElement>;
   setSelectedTab: (index: number) => void;
 };
 

@@ -4,13 +4,13 @@ import Title from "./Title";
 import './styles.css';
 
 type Props = {
+  // TODO: children: ReactElement[] | ReactElement
   children: ReactElement[];
 };
 
 const Tabs: React.FC<Props> = ({ children }) => {
-
   const [selectedTab, setSelectedTab] = useState(1);
-  const tabsRef = Array(children?.length).fill(React.createRef());
+  const tabsRef = Array(children?.length).fill(React.createRef<HTMLInputElement>());
 
   const handleNextTab = useCallback((firstTab: number, nextTab: number, lastTab: number) => {
     const tabToSelect = selectedTab === lastTab ? firstTab : nextTab;
